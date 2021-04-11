@@ -1,7 +1,8 @@
 import { MQueue } from '../database/MQueue.js';
-import { SUSSES, CREATED, BAD_REQUEST } from '../enums/http.enum.js';
+import { SUSSES, CREATED, BAD_REQUEST, INTERNAL_ERROR } from '../enums/http.enum.js';
 
 const QueueRoutes = {
+    queue: 1,
     async geAllQueue(req, res) {
         const data = await MQueue.find();
 
@@ -29,14 +30,15 @@ const QueueRoutes = {
             .json();
     },
     async create(req, res) {
-        const { name, queueNumber } = req.body;
+        const { name } = req.body;
 
-        if (!name || !queueNumber) {
+        if (!name) {
             return res
-                .status(BAD_REQUEST)
+                .status(INTERNAL_ERROR)
                 .json()
         }
 
+        const queueNumber = QueueRoutes.queue++;
         const data = await MQueue.create({
             name,
             queueNumber

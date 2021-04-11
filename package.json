@@ -4,8 +4,8 @@
   "description": "",
   "main": "src/app.js",
   "scripts": {
-    "start": "node src/app.js",
-    "dev": "nodemon src/app.js"
+    "start": "node src/application/app.js",
+    "dev": "nodemon src/application/app.js"
   },
   "keywords": [
     "queue",
@@ -14,6 +14,7 @@
   "author": "Andre Ferreira",
   "license": "ISC",
   "dependencies": {
+    "cors": "^2.8.5",
     "express": "^4.17.1",
     "mongoose": "^5.12.3"
   },

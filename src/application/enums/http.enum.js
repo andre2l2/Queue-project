@@ -1,9 +1,11 @@
 const SUSSES = 200;
 const CREATED = 201;
 const BAD_REQUEST = 400;
+const INTERNAL_ERROR = 500;
 
 export {
     SUSSES,
     CREATED,
-    BAD_REQUEST
+    BAD_REQUEST,
+    INTERNAL_ERROR
 }
