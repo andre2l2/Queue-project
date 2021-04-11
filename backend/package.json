@@ -2,17 +2,17 @@
   "name": "queue",
   "version": "0.1.0",
   "description": "",
-  "main": "src/app.js",
+  "main": "src/routes",
   "scripts": {
-    "start": "node src/application/app.js",
-    "dev": "nodemon src/application/app.js"
+    "start": "node src/model/routes/app.routes.js",
+    "dev": "nodemon src/model/routes/app.routes.js"
   },
   "keywords": [
     "queue",
     "dev"
   ],
   "author": "Andre Ferreira",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "cors": "^2.8.5",
     "express": "^4.17.1",
