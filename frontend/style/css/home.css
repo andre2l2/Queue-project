@@ -1,0 +1,101 @@
+:root {
+    --background-color: #f4a261;
+    --header-color: #e76f51;
+    --section-color: #2a9d8f;
+    --button-color: #264653;
+    --button-color-hover: #365d6d;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    border: 0;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+section {
+    position: relative;
+    height: 100vh;
+    width: 100vw;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+section:nth-child(1) {
+    background-color: var(--background-color);
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+section:nth-child(1) h1 {
+    position: absolute;
+    top: 10%;
+    font-size: 2rem;
+}
+section:nth-child(1) img {
+    width: 40px;
+    position: absolute;
+    top: 90%;
+}
+section:nth-child(1) div {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+section:nth-child(1) div p {
+    text-align: center;
+    font-size: 1.6rem;
+    font-weight: bold;
+    line-height: 3rem;
+}
+section:nth-child(1) div button {
+    width: 50%;
+    height: 50px;
+    margin: 5px;
+    border-radius: 4px;
+    font-size: 20px;
+    text-transform: uppercase;
+    background-color: var(--button-color);
+    color: white;
+    cursor: pointer;
+    transition: 0.2s;
+}
+section:nth-child(1) div button:hover {
+    background-color: var(--button-color-hover);
+}
+
+section:nth-child(2) {
+    background-color: var(--section-color);
+} 
+section:nth-child(2) h1 {
+    position: absolute;
+    top: 10%;
+    font-size: 2rem;
+}
+
+@media (max-width: 790px) {
+    section {        
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    section:nth-child(1) h1,
+    section:nth-child(1) img {
+        position: static;
+    }
+    section:nth-child(1) div p {
+        font-size: 1.6rem;
+        text-align: left;
+        font-weight: bold;
+        line-height: 2rem;
+    }
+    section:nth-child(1) div button {
+        width: 100%;
+    }
+}
