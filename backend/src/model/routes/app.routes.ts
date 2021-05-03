@@ -1,6 +1,6 @@
 import express from 'express';
 import cors from 'cors';
-import QueueContoller from '../../controller/queue.controller.js';
+import QueueContoller from '../../controller/queue.controller';
 
 const app = express();
 app.use(express.json());

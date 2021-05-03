@@ -1,4 +1,4 @@
-import { MQueue } from '../database/MQueue.js';
+import { MQueue } from '../database/MQueue';
 
 const Queue = {
     queue: 1,
@@ -6,7 +6,7 @@ const Queue = {
         const data = await MQueue.find();
         return data;
     },
-    async update(id, body) {     
+    async update(id: string, body: any) {     
         if (!body) throw new Error('Body error');
         if (!id) throw new Error('ID not to be sned');
 
@@ -15,7 +15,7 @@ const Queue = {
             { wasAttended: body.wasAttended }
         )
     },
-    async create(name) {
+    async create(name: string) {
         if (!name) throw new Error('Name not defined');
 
         const queueNumber = Queue.queue++;
@@ -24,7 +24,7 @@ const Queue = {
             queueNumber
         })
     },
-    async delete(id) {
+    async delete(id: string) {
         if (!id) throw new Error('ID not defined');
         return await MQueue.deleteOne({ _id: id });
     }

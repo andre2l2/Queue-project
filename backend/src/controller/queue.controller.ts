@@ -1,5 +1,5 @@
-import { Queue } from '../model/aplication/queue.js';
-import { SUSSES, CREATED, BAD_REQUEST, INTERNAL_ERROR } from '../model/enums/http.enum.js';
+import { Queue } from '../model/aplication/queue';
+import { SUSSES, CREATED, BAD_REQUEST, INTERNAL_ERROR } from '../model/enums/http.enum';
 
 const QueueContoller = {
     async getAll(req, res) {
