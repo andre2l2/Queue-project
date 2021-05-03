@@ -6,7 +6,7 @@ mongoose.connect('mongodb://localhost:27017/queue', {
 })
 
 mongoose.connection.once('open', () => {
-    console.log('connected!');
+    console.log('Database connected!');
 })
 
 const MQueueSchema = new mongoose.Schema({

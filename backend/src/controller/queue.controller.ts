@@ -1,12 +1,12 @@
 import { Queue } from '../model/aplication/queue';
-import { SUSSES, CREATED, BAD_REQUEST, INTERNAL_ERROR } from '../model/enums/http.enum';
+import { httpStatusCode } from '../model/enums/http.enum';
 
 const QueueContoller = {
     async getAll(req, res) {
         const data = await Queue.geAll();
 
         return res
-            .status(SUSSES)
+            .status(httpStatusCode.SUSSES)
             .json(data);
     },
     async update(req, res) {
@@ -17,11 +17,11 @@ const QueueContoller = {
             const data = await Queue.update(id, body);
             
             return res
-                .status(SUSSES)
+                .status(httpStatusCode.SUSSES)
                 .json(data);
         } catch (error) {
             return res
-                .status(BAD_REQUEST)
+                .status(httpStatusCode.BAD_REQUEST)
                 .json({ error });
         }
     },
@@ -32,11 +32,11 @@ const QueueContoller = {
             const data = await Queue.create(name);
 
             return res
-                .status(CREATED)
+                .status(httpStatusCode.CREATED)
                 .json(data);
         } catch (error) {
             return res
-                .status(BAD_REQUEST)
+                .status(httpStatusCode.BAD_REQUEST)
                 .json({ error });
         }
     },
@@ -46,11 +46,11 @@ const QueueContoller = {
             await Queue.delete(id);
 
             return res
-                .status(SUSSES)
+                .status(httpStatusCode.SUSSES)
                 .json({ msg: 'User deleted!' });
         } catch (error) {
             return res
-                .status(BAD_REQUEST)
+                .status(httpStatusCode.BAD_REQUEST)
                 .json({ error });
         }
     }
