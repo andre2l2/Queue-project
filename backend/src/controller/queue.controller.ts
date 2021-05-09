@@ -28,7 +28,7 @@ const QueueContoller = {
     async create(req, res) {
         try {
             const { name } = req.body;
-
+        
             const data = await Queue.create(name);
 
             return res

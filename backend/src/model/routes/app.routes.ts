@@ -13,6 +13,6 @@ app.put('/queue/:id', QueueContoller.update);
 app.post('/queue', QueueContoller.create);
 app.delete('/queue/:id', QueueContoller.delete);
 
-app.listen(PORT, () => 
+export const listen = app.listen(PORT, () => 
     console.log(`\nVocê deve estar procurando a porta. Ela tá aqui! -> Running in ${PORT}`)
 );

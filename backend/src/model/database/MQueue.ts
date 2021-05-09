@@ -11,7 +11,7 @@ mongoose.connection.once('open', () => {
 
 const MQueueSchema = new mongoose.Schema({
     name: String,
-    queueNumber: String, 
+    queueNumber: Number, 
     wasAttended: { type: Boolean, default: false },
 }, { timestamps: true })
 

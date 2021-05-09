@@ -12,7 +12,7 @@ const Time = {
             hh: `${hh}`.padStart(2, '0'),
             mm: `${mm}`.padStart(2, '0'),
             ss: `${ss}`.padStart(2, '0'),
-        }
+        } 
 
         return `${clockFormated.hh}:${clockFormated.mm}:${clockFormated.ss}`;
     },
