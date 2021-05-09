@@ -1,18 +1,19 @@
 import express from 'express';
 import cors from 'cors';
 import QueueContoller from '../../controller/queue.controller';
+import { PublicContoller } from '../../controller/public.contoller';
 
 const PORT = 3333;
 const app = express();
 
 app.set('view engine', 'ejs');
-app.use(express.static(__dirname + '../../../public'));
+app.use(express.static('./public'));
 app.use(express.json());
 app.use(cors());
 
-app.get('/', (req, res) => {
-    res.render('./pages/index');
-})
+app.get('/', PublicContoller.home)
+app.get('/admin', PublicContoller.admin)
+app.get('/client', PublicContoller.client)
 
 app.get('/queue', QueueContoller.getAll);  
 app.put('/queue/:id', QueueContoller.update);
