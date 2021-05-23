@@ -1,10 +1,17 @@
-import { Server } from 'socket.io';
-import { listen } from '../routes/app.routes';
+import { Queue } from './queue';
 
-const io = new Server(listen);
+const SocketUtil = {
+    send: async (socket) => {
+        const data = await Queue.geAll();
+        socket.emit('data', data);
+    },
+    get: (socket) => {
+        socket.on('queue', (data) => {   
+            console.log(data);
+                     
+            socket.emit('data', data);
+        })
+    }
+}
 
-io.on('connection', (socket) => {
-    socket.on('test', (data) => {
-        console.log(data);
-    })
-});
+export { SocketUtil };

@@ -12,14 +12,19 @@
     <section id="queue">
         <div class="queue-painel">
             <div id="list-num"></div>
-            <button>CALL NEXT CLIENT</button>
+            <button id=next>CALL NEXT CLIENT</button>
         </div>
         <div class="queue-list">
-            <h1>CLIENT LIST</h1>
+            <div>
+                <img src="../style/svg/refresh.svg" alt="Refresh" id="refresh">
+                <h1>CLIENTS LIST</h1>
+            </div>
             <ul id="list"></ul>
         </div>
     </section>
-    
+
+    <script src="http://localhost:3333/socket.io/socket.io.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script type="module" src="../javascript/admin/main.js"></script>
 </body>
 </html>

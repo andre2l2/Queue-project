@@ -1,27 +1,12 @@
 const ClientList = {
-    getAll() {
-        return [
-            {
-                wasAttended: false,
-                name: "jsoe",
-                queueNumber: "1"
-            },
-            {
-                wasAttended: false,
-                name: "jsoe",
-                queueNumber: "2"
-            },
-            {
-                wasAttended: false,
-                name: "jsoe",
-                queueNumber: "3"
-            },
-        ]
+    getAll(list) {
+        if (!list) throw new Error('Don`t get items in socket');
+        return list;
     },
-    render() {
+    render(list) {
         const $list = document.querySelector('#list');
         const $listNum = document.querySelector('#list-num');
-        const users = ClientList.getAll();
+        const users = ClientList.getAll(list);
 
         $listNum.innerHTML = `${users[0].queueNumber}`.padStart(5, '0');
         users.forEach((e) => {
