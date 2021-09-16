@@ -1,32 +1,37 @@
+:root {
+	--bg-collor: #3d405b;
+	--font-collor: #e07a5f;
+}
+
 * {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    box-sizing: border-box;
-    font-family: 'Ubuntu', sans-serif;
+	margin: 0;
+	padding: 0;
+	border: 0;
+	box-sizing: border-box;
+	font-family: 'Ubuntu', sans-serif;
 }
 
 section {
-    width: 100vw;
-    height: 100vh; 
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
+	background: var(--bg-collor);
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
 section div {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
 }
 
 section div span {
-    font-weight: bold;
-    font-size: 10rem;
+	color: var(--font-collor);
+	font-weight: bold;
+	font-size: 10rem;
 }
 
-section div span:first-child {
-    font-size: 6rem;
+section div span:nth-child(2n) {
+	font-size: 6rem;
 }
