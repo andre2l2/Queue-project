@@ -1,11 +1,11 @@
 import express from 'express';
 import cors from 'cors';
 import { Server } from 'socket.io';
-import QueueContoller from '../../controller/queue.controller';
-import { PublicContoller } from '../../controller/public.contoller';
-import { SocketUtil } from '../aplication/socket';
+import QueueContoller from '../controller/queue.controller';
+import PublicContoller from '../controller/public.contoller';
+import SocketUtil from '../aplication/socket';
 
-const PORT = 3333;
+const PORT = 8080;
 const app = express();
 
 app.set('view engine', 'ejs');
