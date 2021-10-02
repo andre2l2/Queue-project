@@ -26,7 +26,6 @@ class QueueContoller {
 			const { name } = req.body;
 
 			const data = await Queue.create(name);
-
 			return res.status(httpStatusCode.CREATED).json(data);
 		} catch (error) {
 			return res.status(httpStatusCode.BAD_REQUEST).json({ error });

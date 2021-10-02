@@ -1,6 +1,6 @@
 class PublicContoller {
 	home(req, res): void {
-		res.render('../public/pages/index');
+		res.render('../public/pages/index', { addedUser: true, number: 1 });
 	}
 
 	admin(req, res): void {

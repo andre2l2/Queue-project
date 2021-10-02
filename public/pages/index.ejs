@@ -1,34 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="../style/img/house.svg">
-    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,700;1,400&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../style/css/home.css">
-    <title>Home page</title>
-</head>
-<body>
-    <section id="home">
-        <h1>Queue project</h1>
-        <div>
-            <p>
-                Hello! You are new client? <br> 
-                If yes, click in button "I'm a client". <br>
-                If you are counter attendant clik in "Attendant".
-            </p>
-        </div>
-        <div>
-            <button class="button-client">I'm a client</button>
-            <button class="button-attendent">Attendant</button>
-        </div>
-        <img src="../style/img/down-arrow.svg" id="scroll">
-    </section>
-    <section id="about">
-        <h1>About this project</h1>
-    </section>
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="icon" href="../style/img/house.svg" />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,700;1,400&display=swap"
+			rel="stylesheet"
+		/>
+		<link rel="stylesheet" href="../style/css/home.css" />
+		<title>Home page</title>
+	</head>
+	<body>
+		<section>
+			<% if (addedUser) { %>
+			<main>
+				<div>
+					<label> Your number is: <%= number %></label>
+				</div>
+			</main>
+			<% } else { %>
+			<main>
+				<div>
+					<label>
+						What is your name:
+						<input type="text" placeholder="type here" />
+					</label>
+					<button>OK</button>
+				</div>
+			</main>
+			<% } %>
+		</section>
 
-    <script type="module" src="../javascript/home/main.js"></script>
-</body>
+		<script type="module" src="../javascript/home/main.js"></script>
+	</body>
 </html>
