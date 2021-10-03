@@ -1,15 +1,14 @@
-import ClientList from './ClientList.js';
 const socket = io.connect();
 
 const SoketUtils = {
-    send: () => {
-        socket.emit('queue', { next: 1 });      
-    },
-    get: () => {
-        socket.on('data', (data) => {
-            ClientList.render(data);
-        });
-    }
+	send: () => {
+		socket.emit('data', { next: true });
+	},
+	get: () => {
+		socket.on('data', (data) => {
+			console.log(data);
+		});
+	},
 };
 
 export default SoketUtils;

@@ -1,6 +1,6 @@
 import express from 'express';
 import cors from 'cors';
-import { Server } from 'socket.io';
+import { Server, Socket } from 'socket.io';
 import QueueContoller from '../controller/queue.controller';
 import PublicContoller from '../controller/public.contoller';
 import SocketUtil from '../aplication/socket';
@@ -27,6 +27,6 @@ export const listen = app.listen(PORT, () => console.log(`\n Hello! Running in $
 
 const io = new Server(listen);
 io.on('connection', (socket) => {
-	SocketUtil.get(socket);
-	SocketUtil.send(socket);
+	const socketUtil = new SocketUtil(socket);
+	socketUtil.get();
 });

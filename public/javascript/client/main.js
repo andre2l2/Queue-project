@@ -1,12 +1,11 @@
 import Time from './Time.js';
 import { Serving } from './Serving.js';
-
-const socket = io.connect();
+import SoketUtils from '../admin/SocketUrils.js';
 
 try {
-    Time.render();
-    Serving.render(2);
-    // socket.emit('data', { name: "Andre" });
+	SoketUtils.get();
+	Time.render();
+	Serving.render(1);
 } catch (error) {
-    console.error(error);
+	console.error(error);
 }

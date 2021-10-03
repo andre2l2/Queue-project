@@ -1,12 +1,7 @@
-import {
-    buttonPageTo,
-    buttonScrollDown
-} from './buttons.js';
+import { run } from './create.js';
 
 try {
-    buttonPageTo({ element: '.button-client', to: '/client' });
-    buttonPageTo({ element: '.button-attendent', to: '/admin' });
-    buttonScrollDown('#scroll');
+	run();
 } catch (e) {
-    console.error(e);
+	console.error(e);
 }

@@ -1,18 +1,25 @@
 import Queue from './queue';
 
 class SocketUtil {
-	async send(socket) {
-		const data = await Queue.getAll();
-		socket.emit('data', data);
+	private _socket;
+	private queue: number = 0;
+
+	constructor(socket) {
+		this._socket = socket;
 	}
 
-	get(socket) {
-		socket.on('queue', (data) => {
+	send() {
+		this._socket.emit('next', { queue: this.queue });
+	}
+
+	get() {
+		this._socket.on('data', (data) => {
 			console.log(data);
 
-			socket.emit('data', data);
+			this.queue++;
+			this.send();
 		});
 	}
 }
 
-export default new SocketUtil();
+export default SocketUtil;
