@@ -1,9 +1,11 @@
 import express from 'express';
 import cors from 'cors';
-import { Server, Socket } from 'socket.io';
-import QueueContoller from '../controller/queue.controller';
-import PublicContoller from '../controller/public.contoller';
+import cowsay from 'cowsay';
+
+import { Server } from 'socket.io';
 import SocketUtil from '../aplication/socket';
+import pagesRouter from './pages.routes';
+import queueRouter from './queue.routes';
 
 const PORT = 3333;
 const app = express();
@@ -14,16 +16,18 @@ app.use(express.static('./public'));
 app.use(express.json());
 app.use(cors());
 
-app.get('/', PublicContoller.home);
-app.get('/admin', PublicContoller.admin);
-app.get('/client', PublicContoller.client);
+app.use(pagesRouter);
+app.use(queueRouter);
 
-app.get('/queue', QueueContoller.getAll);
-app.put('/queue/:id', QueueContoller.update);
-app.post('/queue', QueueContoller.create);
-app.delete('/queue/:id', QueueContoller.delete);
+export const listen = app.listen(PORT, () => {
+	const say = cowsay.say({
+		text: `Running in ${PORT}`,
+		e: 'oO',
+		T: 'U ',
+	});
 
-export const listen = app.listen(PORT, () => console.log(`\n Hello! Running in ${PORT}`));
+	console.log(say);
+});
 
 const io = new Server(listen);
 io.on('connection', (socket) => {

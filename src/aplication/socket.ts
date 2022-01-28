@@ -1,5 +1,3 @@
-import Queue from './queue';
-
 class SocketUtil {
 	private _socket;
 	private queue: number = 0;

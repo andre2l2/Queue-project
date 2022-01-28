@@ -2,7 +2,7 @@
     <img src="logo.svg" />
 </p>
 
-# QUEUE PROJECT!
+# SERVING-NOW
 
 ### About
 
