@@ -2,10 +2,8 @@ import express from 'express';
 import cors from 'cors';
 import cowsay from 'cowsay';
 
-import { Server } from 'socket.io';
-import SocketUtil from '../aplication/socket';
-import pagesRouter from './pages.routes';
-import queueRouter from './queue.routes';
+import pagesRouter from './routes/pages.routes';
+import queueRouter from './routes/queue.routes';
 
 const PORT = 3333;
 const app = express();
@@ -27,10 +25,4 @@ export const listen = app.listen(PORT, () => {
 	});
 
 	console.log(say);
-});
-
-const io = new Server(listen);
-io.on('connection', (socket) => {
-	const socketUtil = new SocketUtil(socket);
-	socketUtil.get();
 });

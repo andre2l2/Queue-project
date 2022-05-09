@@ -1,15 +1,10 @@
 import express from 'express';
+import { indexPage, queueAdmin, clientPage } from '../controller/pages.controller';
 
 const pagesRouter = express.Router();
 
-pagesRouter.get('/', (req, res) => {
-	res.render('../public/pages/index', { addedUser: false, number: 1 });
-});
-pagesRouter.get('/admin', (req, res) => {
-	res.render('../public/pages/queue-admin');
-});
-pagesRouter.get('/client', (req, res) => {
-	res.render('../public/pages/queue-client');
-});
+pagesRouter.get('/', indexPage);
+pagesRouter.get('/admin', queueAdmin);
+pagesRouter.get('/client', clientPage);
 
 export default pagesRouter;

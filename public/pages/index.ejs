@@ -1,38 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<link rel="icon" href="../style/img/house.svg" />
-		<link
-			href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,700;1,400&display=swap"
-			rel="stylesheet"
-		/>
-		<link rel="stylesheet" href="../style/css/home.css" />
-		<title>Home page</title>
-	</head>
+	<%- include('../pages/_head') %>
 	<body>
 		<section>
-			<% if (addedUser) { %>
 			<main>
 				<div>
-					<label> Your number is: <%= number %></label>
+					<form method="POST" action="queue">
+						<label for="name">
+							What is your name:
+							<input type="text" name="name" placeholder="type here" />
+						</label>
+						<button type="submit">OK</button>
+					</form>
 				</div>
 			</main>
-			<% } else { %>
-			<main>
-				<div>
-					<label>
-						What is your name:
-						<input type="text" placeholder="type here" />
-					</label>
-					<button>OK</button>
-				</div>
-			</main>
-			<% } %>
 		</section>
 
-		<script type="module" src="../javascript/home/main.js"></script>
+		<!-- <script type="module" src="../javascript/home/main.js"></script> -->
 	</body>
 </html>

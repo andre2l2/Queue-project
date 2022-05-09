@@ -9,14 +9,13 @@ mongoose.connection.once('open', () => {
 	console.log('Database connected!');
 });
 
-const MQueueSchema = new mongoose.Schema(
-	{
-		name: String,
-		numberQueue: Number,
-		wasAttended: { type: Boolean, default: false },
-	},
-	{ timestamps: true }
-);
+const schema = {
+	name: String,
+	numberQueue: String,
+	wasAttended: Boolean,
+};
+
+const MQueueSchema = new mongoose.Schema(schema, { timestamps: true });
 
 const MQueue = mongoose.model('Mqueue', MQueueSchema);
 export { MQueue };
