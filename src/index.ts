@@ -1,6 +1,5 @@
 import express from 'express';
 import cors from 'cors';
-import cowsay from 'cowsay';
 
 import pagesRouter from './routes/pages.routes';
 import queueRouter from './routes/queue.routes';
@@ -17,12 +16,4 @@ app.use(cors());
 app.use(pagesRouter);
 app.use(queueRouter);
 
-export const listen = app.listen(PORT, () => {
-	const say = cowsay.say({
-		text: `Running in ${PORT}`,
-		e: 'oO',
-		T: 'U ',
-	});
-
-	console.log(say);
-});
+export const listen = app.listen(PORT);

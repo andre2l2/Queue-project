@@ -22,15 +22,16 @@ class Queue {
 		return await MQueue.updateOne({ _id: id }, { wasAttended: body.wasAttended });
 	}
 
-	async create(name: string): Promise<unknown> {
-		if (!name) throw new Error('Name not defined');
+	async create(name: string, email: string): Promise<unknown> {
+		if (!name && !email) throw new Error('Name or Email not defined');
 
 		const last = await this.getLast();
 		if (last) this.queue = last;
 
 		this.queue++;
 		return await MQueue.create({
-			name,
+			name: name,
+			email: email,
 			numberQueue: this.queue,
 		});
 	}

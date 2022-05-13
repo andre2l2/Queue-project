@@ -15,8 +15,8 @@ async function updateOneQueue(req: Request, res: Response) {
 }
 
 async function createNewQueue(req: Request, res: Response) {
-	const { name } = req.body;
-	await Queue.create(name);
+	const { name, email } = req.body;
+	await Queue.create(name, email);
 	return res.status(httpCodes.REDIRECT).redirect('/client');
 }
 

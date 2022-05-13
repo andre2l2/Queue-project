@@ -1,4 +1,5 @@
 import mongoose from 'mongoose';
+import cowsay from 'cowsay';
 
 mongoose.connect('mongodb://localhost:27017/queue', {
 	useNewUrlParser: true,
@@ -6,11 +7,18 @@ mongoose.connect('mongodb://localhost:27017/queue', {
 });
 
 mongoose.connection.once('open', () => {
-	console.log('Database connected!');
+	const say = cowsay.say({
+		text: `Database connected`,
+		e: 'oO',
+		T: 'U ',
+	});
+
+	console.log(say);
 });
 
 const schema = {
 	name: String,
+	email: String,
 	numberQueue: String,
 	wasAttended: Boolean,
 };

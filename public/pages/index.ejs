@@ -1,16 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
 	<%- include('../pages/_head') %>
-	<body>
-		<section>
+	<body class="bg-dark">
+		<section class="container">
 			<main>
-				<div>
-					<form method="POST" action="queue">
-						<label for="name">
-							What is your name:
-							<input type="text" name="name" placeholder="type here" />
-						</label>
-						<button type="submit">OK</button>
+				<div class="d-flex align-items-center justify-content-center">
+					<form method="POST" action="queue" class="bg-light rounded py-5 px-5">
+						<div class="mb-1">
+							<label for="name" class="form-label">
+								What is your name:
+								<input
+									type="text"
+									name="name"
+									class="form-control mt-1"
+									placeholder="type here"
+									autocomplete="off"
+								/>
+							</label>
+						</div>
+						<div class="mb-3">
+							<label for="name" class="form-label">
+								What is your email:
+								<input
+									type="email"
+									name="name"
+									class="form-control mt-1"
+									placeholder="type here"
+									autocomplete="off"
+								/>
+							</label>
+						</div>
+						<button type="submit" class="btn btn-primary col-12">OK</button>
 					</form>
 				</div>
 			</main>
