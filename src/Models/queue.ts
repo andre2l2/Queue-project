@@ -4,10 +4,7 @@ class Queue {
 	private queue: number = 0;
 
 	async getAll(): Promise<unknown> {
-		const data = await MQueue.find({
-			wasAttended: false,
-		});
-		return data;
+		return MQueue.find({}, { __v: 0 });
 	}
 
 	async getLast(): Promise<number> {
@@ -19,7 +16,7 @@ class Queue {
 		if (!body) throw new Error('Body error');
 		if (!id) throw new Error('ID not to be sned');
 
-		return await MQueue.updateOne({ _id: id }, { wasAttended: body.wasAttended });
+		return MQueue.updateOne({ _id: id }, { wasAttended: body.wasAttended });
 	}
 
 	async create(name: string, email: string): Promise<unknown> {

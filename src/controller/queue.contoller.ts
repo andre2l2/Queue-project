@@ -1,6 +1,9 @@
 import { Request, Response } from 'express';
 import httpCodes from '../enums/http.enum';
 import Queue from '../Models/queue';
+import StrValidator from '../utils/str-validator.utils';
+
+const { isEmpty } = new StrValidator();
 
 async function getAllQueues(req: Request, res: Response) {
 	const data = await Queue.getAll();
@@ -16,6 +19,10 @@ async function updateOneQueue(req: Request, res: Response) {
 
 async function createNewQueue(req: Request, res: Response) {
 	const { name, email } = req.body;
+
+	if (isEmpty(email)) return res.status(httpCodes.REDIRECT).redirect('/?error=invalid-email');
+	if (isEmpty(email)) return res.status(httpCodes.REDIRECT).redirect('/?error=invalid-name');
+
 	await Queue.create(name, email);
 	return res.status(httpCodes.REDIRECT).redirect('/client');
 }

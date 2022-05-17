@@ -1,0 +1,30 @@
+@host=http://localhost:3333
+
+GET {{host}}/queue
+content-type: application/json
+
+###
+
+POST {{host}}/queue
+content-type: application/json
+
+{
+    "name": "Andre Ferreira",
+    "email": "delcferreira@gmail.com"
+}
+
+###
+
+PUT {{host}}/queue/6283031005b31b71d9c42e45
+content-type: application/json
+
+{
+    "wasAttended": true
+}
+
+###
+
+DELETE {{host}}/queue/6283031005b31b71d9c42e45
+content-type: application/json
+
+###
