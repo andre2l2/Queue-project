@@ -19,7 +19,7 @@ mongoose.connection.once('open', () => {
 const schema = {
 	name: String,
 	email: String,
-	numberQueue: String,
+	queue: Number,
 	wasAttended: Boolean,
 };
 

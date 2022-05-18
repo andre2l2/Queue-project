@@ -2,6 +2,7 @@ import { Request, Response } from 'express';
 import httpCodes from '../enums/http.enum';
 import Queue from '../Models/queue';
 import StrValidator from '../utils/str-validator.utils';
+import { responseRender } from '../utils/render-page.utils';
 
 const { isEmpty } = new StrValidator();
 
@@ -23,8 +24,8 @@ async function createNewQueue(req: Request, res: Response) {
 	if (isEmpty(email)) return res.status(httpCodes.REDIRECT).redirect('/?error=invalid-email');
 	if (isEmpty(email)) return res.status(httpCodes.REDIRECT).redirect('/?error=invalid-name');
 
-	await Queue.create(name, email);
-	return res.status(httpCodes.REDIRECT).redirect('/client');
+	const createdQueue = await Queue.create(name, email);
+	return responseRender(res, 'ticket', { name: name, email: email, queue: createdQueue?.queue });
 }
 
 async function deleteQueue(req: Request, res: Response) {

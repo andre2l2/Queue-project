@@ -1,10 +1,10 @@
 import express from 'express';
-import { indexPage, queueAdmin, clientPage } from '../controller/pages.controller';
+import pagesContoller from '../controller/pages.controller';
 
 const pagesRouter = express.Router();
 
-pagesRouter.get('/', indexPage);
-pagesRouter.get('/admin', queueAdmin);
-pagesRouter.get('/client', clientPage);
+pagesRouter.get('/', pagesContoller.indexPage);
+pagesRouter.get('/admin', pagesContoller.queueAdmin);
+pagesRouter.get('/client', pagesContoller.clientPage);
 
 export default pagesRouter;

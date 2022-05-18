@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+	<%- include('../pages/_head') %>
+	<body class="bg-dark">
+		<section class="container">
+			<main>
+				<div class="d-flex align-items-center justify-content-center">
+					<div class="card text-center bg-light">
+						<div class="card-body">
+							<h5 class="card-title">Your ticket number is here</h5>
+							<table class="table">
+								<thead>
+									<tr>
+										<th scope="col">Queue</th>
+										<th scope="col">Name</th>
+										<th scope="col">Email</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td class="text-primary"><%= queue %></td>
+										<td><%= name %></td>
+										<td><%= email %></td>
+									</tr>
+								</tbody>
+							</table>
+							<button class="btn btn-danger" onclick="exitQueue()">Exit to queue</button>
+						</div>
+					</div>
+				</div>
+			</main>
+		</section>
+	</body>
+	<script>
+		function exitQueue() {
+			Swal.fire({
+				icon: 'question',
+				title: 'Do you want to exit queue?',
+				text: 'Click in exit, to exit queue.',
+				showCancelButton: true,
+				confirmButtonText: 'Exit',
+				denyButtonText: `Don't Exit`,
+				confirmButtonColor: '#1d8757',
+				cancelButtonColor: '#db3747',
+			}).then((result) => {
+				if (result.isConfirmed) {
+					Swal.fire('Bye! Bye!', '', 'success');
+					setTimeout(() => {
+						window.location = '/';
+					}, 1500);
+				}
+			});
+		}
+	</script>
+</html>

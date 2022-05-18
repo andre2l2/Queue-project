@@ -1,15 +1,16 @@
 import { Request, Response } from 'express';
+import { responseRender } from '../utils/render-page.utils';
 
-function indexPage(req: Request, res: Response) {
-	res.render('../public/pages/index', { addedUser: false, number: 1 });
+function indexPage(req: Request, res: Response): void {
+	responseRender(res, 'index');
 }
 
-function queueAdmin(req: Request, res: Response) {
-	res.render('../public/pages/queue-admin');
+function queueAdmin(req: Request, res: Response): void {
+	responseRender(res, 'queue-admin');
 }
 
-function clientPage(req: Request, res: Response) {
-	res.render('../public/pages/queue-client');
+function clientPage(req: Request, res: Response): void {
+	responseRender(res, 'queue-client');
 }
 
-export { indexPage, queueAdmin, clientPage };
+export default { indexPage, queueAdmin, clientPage };

@@ -1,40 +1,32 @@
 import { MQueue } from '../database/MQueue';
 
 class Queue {
-	private queue: number = 0;
-
 	async getAll(): Promise<unknown> {
 		return MQueue.find({}, { __v: 0 });
 	}
 
-	async getLast(): Promise<number> {
-		const data: any = await MQueue.find({}).sort({ createdAt: -1 }).limit(1);
-		return data.numberQueue;
+	async getLast(): Promise<any> {
+		return MQueue.findOne({}).sort({ createdAt: -1 });
 	}
 
 	async updateOne(id: string, body: any): Promise<unknown> {
-		if (!body) throw new Error('Body error');
-		if (!id) throw new Error('ID not to be sned');
-
 		return MQueue.updateOne({ _id: id }, { wasAttended: body.wasAttended });
 	}
 
-	async create(name: string, email: string): Promise<unknown> {
-		if (!name && !email) throw new Error('Name or Email not defined');
+	async create(name: string, email: string): Promise<any> {
+		const lastRegister = await this.getLast();
+		let queue = lastRegister?.queue ? lastRegister.queue : 0;
+		queue = queue + 1;
 
-		const last = await this.getLast();
-		if (last) this.queue = last;
-
-		this.queue++;
-		return await MQueue.create({
+		return MQueue.create({
 			name: name,
 			email: email,
-			numberQueue: this.queue,
+			queue: queue,
+			wasAttended: false,
 		});
 	}
 
 	async delete(id: string): Promise<unknown> {
-		if (!id) throw new Error('ID not defined');
 		return await MQueue.deleteOne({ _id: id });
 	}
 }
