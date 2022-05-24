@@ -1,4 +1,4 @@
-import { MQueue } from '../database/MQueue';
+import { MQueue } from '../infrastructure/database/MQueue';
 
 class Queue {
 	async getAll(): Promise<unknown> {

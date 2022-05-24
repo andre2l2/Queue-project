@@ -1,5 +1,6 @@
 import { Request, Response } from 'express';
-import { responseRender } from '../utils/render-page.utils';
+import { responseRender } from '../infrastructure/utils/render-page.utils';
+import Queue from '../Models/queue';
 
 function indexPage(req: Request, res: Response): void {
 	responseRender(res, 'index');
@@ -9,8 +10,9 @@ function queueAdmin(req: Request, res: Response): void {
 	responseRender(res, 'queue-admin');
 }
 
-function clientPage(req: Request, res: Response): void {
-	responseRender(res, 'queue-client');
+async function clientPage(req: Request, res: Response): Promise<void> {
+	const userQueue = await Queue.getLast();
+	return responseRender(res, 'queue-client', { queue: userQueue.queue });
 }
 
 export default { indexPage, queueAdmin, clientPage };

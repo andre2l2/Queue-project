@@ -9,6 +9,7 @@
 	border: 0;
 	box-sizing: border-box;
 	font-family: 'Ubuntu', sans-serif;
+	animation-duration: 0.5s;
 }
 
 section {

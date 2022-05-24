@@ -14,3 +14,11 @@ Welcome to queue project! I create this project named electronic queue, for help
     npm install
     npm run dev
 ```
+
+### Env Example
+
+```text
+LOCAL="dev"
+PORT=3000
+MONGO_DB_URL="your_mongo_db_url"
+```

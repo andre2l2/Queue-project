@@ -1,8 +1,8 @@
 import { Request, Response } from 'express';
-import httpCodes from '../enums/http.enum';
+import httpCodes from '../infrastructure/enums/http.enum';
 import Queue from '../Models/queue';
-import StrValidator from '../utils/str-validator.utils';
-import { responseRender } from '../utils/render-page.utils';
+import StrValidator from '../infrastructure/utils/str-validator.utils';
+import { responseRender } from '../infrastructure/utils/render-page.utils';
 
 const { isEmpty } = new StrValidator();
 

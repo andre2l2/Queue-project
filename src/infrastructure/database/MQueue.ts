@@ -1,7 +1,9 @@
 import mongoose from 'mongoose';
 import cowsay from 'cowsay';
 
-mongoose.connect('mongodb://localhost:27017/queue', {
+const url = process.env.MONGO_DB_URL as string;
+
+mongoose.connect(url, {
 	useNewUrlParser: true,
 	useUnifiedTopology: true,
 });
@@ -17,12 +19,13 @@ mongoose.connection.once('open', () => {
 });
 
 const schema = {
-	name: String,
-	email: String,
-	queue: Number,
-	wasAttended: Boolean,
+	name: { type: String },
+	email: { type: String },
+	queue: { type: String },
+	wasAttended: { type: Boolean },
 };
 
+// @ts-ignore
 const MQueueSchema = new mongoose.Schema(schema, { timestamps: true });
 
 const MQueue = mongoose.model('Mqueue', MQueueSchema);
