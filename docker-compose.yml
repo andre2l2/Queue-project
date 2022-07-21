@@ -1,0 +1,16 @@
+version: '3.9'
+
+services:
+  serving:
+    build: .
+    container_name: serving
+    env_file:
+      - .env
+    ports:
+      - '3000:3000'
+
+  database:
+    image: mongo
+    container_name: database
+    ports:
+      - '27017:27017'
